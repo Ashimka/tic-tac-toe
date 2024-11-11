@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Крестики нолики</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header class="header">
+        <div class="header__player" id="O_player" onclick="choosePlayer('O')">O</div>
+        <h4 class="header__title">Крестики нолики</h4>
+        <div class="header__player" id="X_player" onclick="choosePlayer('X')">X</div>
+      </header>
+      <main class"main">
+        <div class="main__board">
+          <div class="cell"></div>
+          <div class="cell"></div>
+          <div class="cell"></div>
+          <div class="cell"></div>
+          <div class="cell"></div>
+          <div class="cell"></div>
+          <div class="cell"></div>
+          <div class="cell"></div>
+          <div class="cell"></div>
+        </div>
+        <button class="restart">Новая игра</button>
+      </main>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
