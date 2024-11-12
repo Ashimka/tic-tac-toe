@@ -31,6 +31,7 @@ const choosePlayer = (selectPlayer) => {
       XPlayer.classList.remove("active");
       OPlayer.classList.add("active");
     }
+    isStartGame = true;
   }
 };
 
@@ -39,11 +40,11 @@ cells.forEach((cell, index) => {
 });
 
 const tapCell = (cell, index) => {
-  if (cell.textContent === "" && !isPauseGame) {
+  if (cell.textContent === "" && !isPauseGame && isStartGame) {
     isStartGame = true;
     updateCell(cell, index);
 
-    if (!checkWinner()) {
+    if (!checkWinner() && isStartGame) {
       changePlayer();
       randomPick();
     }
@@ -73,6 +74,7 @@ const randomPick = () => {
     if (!checkWinner()) {
       changePlayer();
       isPauseGame = false;
+
       return;
     }
     player = changePlayer();
@@ -87,11 +89,13 @@ const checkWinner = () => {
       inputCells[c] === player
     ) {
       declareWinner([a, b, c]);
+
       return true;
     }
   }
   if (inputCells.every((cell) => cell !== "")) {
     declareDraw();
+
     return true;
   }
 };
@@ -121,6 +125,7 @@ restartBtn.addEventListener("click", () => {
     cell.style.background = "";
   });
   isPauseGame = false;
-  isStartGame = false;
+
   title.textContent = "Крестики нолики";
+  player = XPlayer.classList.contains("active") ? "X" : "O";
 });
