@@ -3,6 +3,8 @@ const title = document.querySelector(".header__title");
 const OPlayer = document.querySelector("#O_player");
 const XPlayer = document.querySelector("#X_player");
 const restartBtn = document.querySelector(".restart");
+const scoreO = document.querySelector(".score_o");
+const scoreX = document.querySelector(".score_x");
 
 let player;
 let isPauseGame = false;
@@ -20,6 +22,10 @@ const winConditions = [
   [0, 4, 8],
   [2, 4, 6],
 ];
+const scoreGame = {
+  o: 0,
+  x: 0,
+};
 
 const choosePlayer = (selectPlayer) => {
   if (!isStartGame) {
@@ -32,6 +38,8 @@ const choosePlayer = (selectPlayer) => {
       OPlayer.classList.add("active");
     }
     isStartGame = true;
+    scoreO.innerHTML = scoreGame.o;
+    scoreX.innerHTML = scoreGame.x;
   }
 };
 
@@ -109,6 +117,14 @@ const declareWinner = (winningIndices) => {
   );
 
   restartBtn.style.visibility = "visible";
+
+  if (player === "O") {
+    scoreGame.o++;
+    scoreO.innerHTML = scoreGame.o;
+  } else {
+    scoreGame.x++;
+    scoreX.innerHTML = scoreGame.x;
+  }
 };
 
 const declareDraw = () => {

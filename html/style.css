@@ -5,8 +5,13 @@
   user-select: none;
   color: white;
 }
+body {
+  background: #3d0275;
+}
 .container {
-  background: #310031;
+  margin: 0 auto;
+  max-width: 450px;
+  width: 100%;
   height: 100vh;
   display: flex;
   flex-direction: column;
@@ -32,7 +37,7 @@
       cursor: pointer;
       border-radius: 10px;
       border: solid 4px #5e005e;
-      opacity: 0.5;
+      opacity: 0.8;
       transition: 0.4s background;
     }
     .header__player:hover {
@@ -47,6 +52,21 @@
     }
     #X_player {
       color: #ffd700;
+    }
+  }
+
+  .main__score {
+    height: 3rem;
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .score_o,
+    .score_x {
+      padding: 0 1rem;
+      font-weight: 500;
+      font-size: 1.5rem;
     }
   }
 
@@ -66,9 +86,6 @@
       cursor: pointer;
       transform: 0.4s background;
     }
-    .cell:hover {
-      background: #5e005e;
-    }
   }
   .restart {
     margin-top: 30px;
@@ -84,6 +101,16 @@
     visibility: hidden;
   }
   .restart:hover {
+    background: #5e005e;
+  }
+}
+@media (hover: hover) {
+  .cell:hover {
+    background: #5e005e;
+  }
+}
+@media (hover: none) {
+  .cell:active {
     background: #5e005e;
   }
 }
