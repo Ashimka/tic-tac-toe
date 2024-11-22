@@ -7,7 +7,7 @@ RUN apt-get update && apt-get install -y git
 RUN rm -rf /usr/share/nginx/html/*
 
 # Клонируем репозиторий с статическими файлами
-RUN git clone https://github.com/Ashimka/Math.git /usr/share/nginx/html
+RUN git clone https://github.com/Ashimka/tic-tac-toe.git /usr/share/nginx/html
 
 # Удаляем кэш apt
 RUN apt-get clean && rm -rf /var/lib/apt/lists/*
